@@ -189,7 +189,7 @@ export default function App() {
               <p style={S.cSub}>Parol kiriting (demo: admin123)</p>
               <input style={{...S.adminInput, width:"100%", boxSizing:"border-box"}} type="password" placeholder="Parol..."
                 value={adminPass} onChange={e => setAdminPass(e.target.value)}
-                onKeyDown={e => { if(e.key==="Enter") adminPass==="admin123"?(setAdminUnlocked(true),setAdminError(false)):setAdminError(true); }} />
+                onKeyDown={e => { if(e.key==="Enter"){ if(adminPass==="admin123"){setAdminUnlocked(true);setAdminError(false);}else{setAdminError(true);} } }} />
               {adminError && <p style={{color:"#ef4444",fontSize:13,marginTop:6}}>❌ Noto'g'ri parol</p>}
               <button style={{...S.nextBtn, marginTop:14, width:"100%"}}
                 onClick={() => adminPass==="admin123"?(setAdminUnlocked(true),setAdminError(false)):setAdminError(true)}>Kirish</button>
