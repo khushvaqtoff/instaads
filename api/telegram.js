@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
   if (req.method === "OPTIONS") return res.status(200).end();
 
-  const BOT_TOKEN = "AAGvogT1cKZjUrHg1bA2Vnb0rZghCeMq36M";
+  const BOT_TOKEN = "8801927381:AAGvogT1cKZjUrHg1bA2Vnb0rZghCeMq36M";
   const CHAT_ID = "495260714";
 
   const r = await fetch(
