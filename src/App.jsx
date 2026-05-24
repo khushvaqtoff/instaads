@@ -1,8 +1,5 @@
 import { useState } from "react";
 
-const BOT_TOKEN = "AAGvogT1cKZjUrHg1bA2Vnb0rZghCeMq36M";
-const CHAT_ID = "495260714";
-
 const sendToTelegram = async (order) => {
   const lines = [
     "YANGI BUYURTMA!",
@@ -24,14 +21,11 @@ const sendToTelegram = async (order) => {
     new Date().toLocaleString(),
   ].filter(Boolean).join("\n");
 
-  const res = await fetch(
-    "https://api.telegram.org/bot" + BOT_TOKEN + "/sendMessage",
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: CHAT_ID, text: lines }),
-    }
-  );
+  const res = await fetch("/api/telegram", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text: lines }),
+  });
   if (!res.ok) throw new Error("fail");
 };
 
